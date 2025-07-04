@@ -8,20 +8,27 @@ import src.models.Customer;
 
 public class CheckoutService {
 
-    public static void checkout(Customer customer, Cart cart) {
+       public static void checkout(Customer customer, Cart cart) {
         double total = 0.0;
-
-        System.out.println("** Checkout receipt **");
+    
+        System.out.println("** Checkout Receipt **");
+        System.out.println("=====================================");
+        System.out.printf("%-25s %10s%n", "Item", "Price");
+        System.out.println("=====================================");
+        
         for (Entry<Product, Integer> entry : cart.getItems().entrySet()) {
             Product product = entry.getKey();
             int quantity = entry.getValue();
             double price = product.getPrice() * quantity;
-
-            System.out.println(quantity + "x " + product.getName() + "\t" + price);
+    
+            String itemDescription = quantity + "x " + product.getName();
+            System.out.printf("%-25s $%9.2f%n", itemDescription, price);
             total += price;
         }
-        System.out.println("------------------------");
-        System.out.println("Subtotal\t" + total);
+        
+        System.out.println("=====================================");
+        System.out.printf("%-25s $%9.2f%n", "Subtotal", total);
+        System.out.println("=====================================");
     }
 
 }
