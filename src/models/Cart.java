@@ -1,8 +1,8 @@
-package models;
+package src.models;
 
 import java.util.List;
 
-import abstractClasses.Product;
+import src.abstractClasses.Product;
 
 public class Cart {
     private List<CartItem> items;

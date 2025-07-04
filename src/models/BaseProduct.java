@@ -1,6 +1,6 @@
-package models;
+package src.models;
 
-import abstractClasses.Product;
+import src.abstractClasses.Product;
 
 public class BaseProduct extends Product {
 

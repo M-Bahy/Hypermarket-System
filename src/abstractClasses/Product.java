@@ -1,4 +1,4 @@
-package abstractClasses;
+package src.abstractClasses;
 
 public abstract class Product {
     private String name;

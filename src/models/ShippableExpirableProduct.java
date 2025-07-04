@@ -1,7 +1,8 @@
-package models;
+package src.models;
 
 import java.time.LocalDate;
-import interfaces.Shippable;
+
+import src.interfaces.Shippable;
 
 public class ShippableExpirableProduct extends ExpirableProduct implements Shippable {
     private double weight;
