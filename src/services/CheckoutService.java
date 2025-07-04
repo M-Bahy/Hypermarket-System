@@ -35,7 +35,8 @@ public class CheckoutService {
             System.out.printf("%-25s $%9.2f%n", itemDescription, price);
             total += price;
         }
-        double shippingCost = shippableItems.isEmpty() ? 0.0 : ShippingService.calculateShippingCost(shippableItems);
+        ShippingService shippingService = new ShippingService(10.5); 
+        double shippingCost = shippableItems.isEmpty() ? 0.0 : shippingService.calculateShippingCost(shippableItems);
         System.out.println("=====================================");
         System.out.printf("%-25s $%9.2f%n", "Subtotal", total);
         System.out.printf("%-25s $%9.2f%n", "Shipping", shippingCost);

@@ -17,11 +17,11 @@ public class Main {
         Product apple = ProductFactory.createProduct("Apple", 5.25, 200 , LocalDate.of(2025, 7, 9)); // Expirable product
         Product banana = ProductFactory.createProduct("Banana", 3.70, 50, LocalDate.of(2025, 12, 31)); // Expirable product
         
-        Product laptop = ProductFactory.createProduct("Laptop", 999.99, 15,10); // Shippable product
-        Product tv = ProductFactory.createProduct("TV", 700.50, 30,22); // Shippable product
+        Product laptop = ProductFactory.createProduct("Laptop", 999.99, 15,1500); // Shippable product
+        Product tv = ProductFactory.createProduct("TV", 700.50, 30,3000); // Shippable product
 
-        Product cheese = ProductFactory.createProduct("Cheese", 145.12, 1, LocalDate.of(2025, 7, 29), 5.5); // Shippable expirable product
-        Product biscuits = ProductFactory.createProduct("Biscuits", 11.99, 8, LocalDate.of(2025, 8, 12), 2.3); // Shippable expirable product
+        Product cheese = ProductFactory.createProduct("Cheese", 145.12, 1, LocalDate.of(2025, 7, 29), 400); // Shippable expirable product
+        Product biscuits = ProductFactory.createProduct("Biscuits", 11.99, 8, LocalDate.of(2025, 8, 12), 700); // Shippable expirable product
 
         Cart cart = new Cart();
 
