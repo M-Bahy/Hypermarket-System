@@ -12,7 +12,6 @@ public class ShippableExpirableProduct extends ExpirableProduct implements Shipp
         setWeight(weight);
     }
 
-    @Override
     public void setWeight(double weight) {
         if (weight <= 0) {
             throw new IllegalArgumentException("Weight must be a positive value, got: " + weight);

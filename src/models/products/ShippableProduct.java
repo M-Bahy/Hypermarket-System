@@ -11,7 +11,6 @@ public class ShippableProduct extends Product implements Shippable {
         setWeight(weight);
     }
 
-    @Override
     public void setWeight(double weight) {
         if (weight <= 0)
             throw new IllegalArgumentException("Weight must be positive, got: " + weight);
