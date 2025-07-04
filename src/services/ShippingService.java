@@ -22,7 +22,8 @@ public class ShippingService {
             totalWeight += item.getWeight();
             itemCounts.put(item, itemCounts.getOrDefault(item, 0) + 1);
         }
-
+        System.out.println();
+        System.out.println();
         System.out.println("** Shipment Notice **");
         System.out.println("=====================================");
         System.out.printf("%-25s %10s%n", "Item", "Weight");
@@ -39,7 +40,7 @@ public class ShippingService {
 
         System.out.println("=====================================");
         System.out.printf("%-25s %7.1fkg%n", "Total package weight", totalWeight / 1000);
-        System.out.println("=====================================");
+        // System.out.println("=====================================");
 
         return (totalWeight / 1000) * shippingRate; // Convert grams to kg and apply rate
     }

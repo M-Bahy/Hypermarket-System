@@ -11,7 +11,7 @@ import src.models.Customer;
 
 public class CheckoutService {
 
-       public static void checkout(Customer customer, Cart cart) {
+    public static void checkout(Customer customer, Cart cart) {
         double total = 0.0;
         List<Shippable> shippableItems = new ArrayList<>();
 
@@ -19,12 +19,12 @@ public class CheckoutService {
         System.out.println("=====================================");
         System.out.printf("%-25s %10s%n", "Item", "Price");
         System.out.println("=====================================");
-        
+
         for (Entry<Product, Integer> entry : cart.getItems().entrySet()) {
             Product product = entry.getKey();
             int quantity = entry.getValue();
             double price = product.getPrice() * quantity;
-            
+
             if (product instanceof Shippable) {
                 for (int i = 0; i < quantity; i++) {
                     shippableItems.add((Shippable) product);
@@ -35,12 +35,18 @@ public class CheckoutService {
             System.out.printf("%-25s $%9.2f%n", itemDescription, price);
             total += price;
         }
-        ShippingService shippingService = new ShippingService(10.5); 
-        double shippingCost = shippableItems.isEmpty() ? 0.0 : shippingService.calculateShippingCost(shippableItems);
+        ShippingService shippingService = new ShippingService(10.5);
         System.out.println("=====================================");
+        double shippingCost = 0.0;
+        if (!shippableItems.isEmpty()) {
+            System.out.printf("%-25s $%9.2f%n", "Subtotal", total);
+            shippingCost =  shippingService.calculateShippingCost(shippableItems);
+            System.out.println();
+            System.out.println();
+        }
         System.out.printf("%-25s $%9.2f%n", "Subtotal", total);
         System.out.printf("%-25s $%9.2f%n", "Shipping", shippingCost);
-        System.out.printf("%-25s $%9.2f%n", "Amount", total+shippingCost);
+        System.out.printf("%-25s $%9.2f%n", "Amount", total + shippingCost);
         System.out.println("=====================================");
         double newBalance = customer.getBalance() - total - shippingCost;
         System.out.printf("%-25s $%9.2f%n", "Current Balance", newBalance);
