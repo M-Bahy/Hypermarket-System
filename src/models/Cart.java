@@ -1,66 +1,36 @@
 package src.models;
 
+import java.util.HashMap;
 import java.util.List;
 
 import src.abstractClasses.Product;
 
 public class Cart {
-    private List<CartItem> items;
+   
 
-    public Cart(List<CartItem> items) {
-        this.items = items;
+    private HashMap<Product, Integer> items;
+
+    public Cart() {
+        this.items = new HashMap<>();
     }
 
-    public List<CartItem> getItems() {
+    public HashMap<Product, Integer> getItems() {
         return items;
     }
 
-    public void addItem(CartItem item) {
-        if (item.getProduct().getQuantity() < item.getQuantity()) {
-            throw new IllegalArgumentException("Not enough stock for product: " + item.getProduct().getName());
+    public void addProduct(Product product, int quantity) {
+        if (product == null || quantity <= 0) {
+            throw new IllegalArgumentException("Invalid product or quantity");
         }
-        items.add(item);
+        items.put(product, items.getOrDefault(product, 0) + quantity);
     }
 
-    public double getSubTotal() {
-        return items.stream().mapToDouble(CartItem::getTotalPrice).sum();
+    public double subTotal() {
+        double total = 0.0;
+        for (Product product : items.keySet()) {
+            total += product.getPrice() * items.get(product);
+        }
+        return total;
     }
-
 }
 
-class CartItem {
-    private Product product;
-    private int quantity;
-
-    public CartItem(Product product, int quantity) {
-        setProduct(product);
-        setQuantity(quantity);
-    }
-
-    public void setProduct(Product product) {
-        if (product == null) {
-            throw new IllegalArgumentException("Product cannot be null");
-        }
-        this.product = product;
-    }
-
-    public void setQuantity(int quantity) {
-        if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity must be positive, got: " + quantity);
-        }
-        this.quantity = quantity;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public double getTotalPrice() {
-        return product.getPrice() * quantity;
-    }
-
-}
