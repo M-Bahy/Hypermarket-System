@@ -100,10 +100,10 @@ java Main
 
 ```java
 // Create different types of products
-Product pants = ProductFactory.createProduct("Pants", 300.30, 500); // Base Product
-Product apple = ProductFactory.createProduct("Apple", 5.25, 200, LocalDate.of(2025, 7, 9)); // Expirable Product
-Product laptop = ProductFactory.createProduct("Laptop", 999.99, 15, 1500); // Shippable Product
-Product cheese = ProductFactory.createProduct("Cheese", 145.12, 2, LocalDate.of(2025, 7, 29), 400); // Shippable Expirable Product
+Product pants = ProductFactory.createProduct("Pants", 300.30, 500);
+Product apple = ProductFactory.createProduct("Apple", 5.25, 200, LocalDate.of(2025, 7, 9));
+Product laptop = ProductFactory.createProduct("Laptop", 999.99, 15, 1500);
+Product cheese = ProductFactory.createProduct("Cheese", 145.12, 2, LocalDate.of(2025, 7, 29), 400);
 
 // Create cart and add products
 Cart cart = new Cart();
