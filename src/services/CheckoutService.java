@@ -26,18 +26,16 @@ public class CheckoutService {
             double price = product.getPrice() * quantity;
             
             if (product instanceof Shippable) {
-
                 for (int i = 0; i < quantity; i++) {
                     shippableItems.add((Shippable) product);
                 }
-                
             }
 
             String itemDescription = quantity + "x " + product.getName();
             System.out.printf("%-25s $%9.2f%n", itemDescription, price);
             total += price;
         }
-        double shippingCost = shippableItems.isEmpty() ? 0.0 : 1.0;
+        double shippingCost = shippableItems.isEmpty() ? 0.0 : ShippingService.calculateShippingCost(shippableItems);
         System.out.println("=====================================");
         System.out.printf("%-25s $%9.2f%n", "Subtotal", total);
         System.out.printf("%-25s $%9.2f%n", "Shipping", shippingCost);
