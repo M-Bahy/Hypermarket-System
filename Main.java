@@ -32,6 +32,8 @@ public class Main {
         cart.addProduct(laptop, 1);
         cart.addProduct(tv, 1);
         cart.addProduct(cheese, 1);
+        cart.addProduct(cheese, 1); // adding the same product again will increase the quantity
+        assert cart.getItems().get(cheese) == 2 : "The quantity should have increased to 2";
         cart.addProduct(biscuits, 2);
 
         Customer customer = new Customer("John Doe", 500.00);
