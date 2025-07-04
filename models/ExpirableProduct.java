@@ -1,4 +1,8 @@
+package models;
+
 import java.time.LocalDate;
+import abstractClasses.Product;
+import interfaces.Expirable;
 
 public class ExpirableProduct extends Product implements Expirable {
     private LocalDate expiryDate;

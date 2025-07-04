@@ -1,3 +1,8 @@
+package models;
+
+import abstractClasses.Product;
+import interfaces.Shippable;
+
 public class ShippableProduct extends Product implements Shippable {
     private double weight;
 
