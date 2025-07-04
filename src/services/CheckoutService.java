@@ -25,9 +25,11 @@ public class CheckoutService {
             System.out.printf("%-25s $%9.2f%n", itemDescription, price);
             total += price;
         }
-        
+        double shippingCost = 0.0;
         System.out.println("=====================================");
         System.out.printf("%-25s $%9.2f%n", "Subtotal", total);
+        System.out.printf("%-25s $%9.2f%n", "Shipping", shippingCost);
+        System.out.printf("%-25s $%9.2f%n", "Amount", total+shippingCost);
         System.out.println("=====================================");
     }
 
