@@ -20,7 +20,7 @@ public class Main {
         Product laptop = ProductFactory.createProduct("Laptop", 999.99, 15,1500); // Shippable product
         Product tv = ProductFactory.createProduct("TV", 700.50, 30,3000); // Shippable product
 
-        Product cheese = ProductFactory.createProduct("Cheese", 145.12, 1, LocalDate.of(2025, 7, 29), 400); // Shippable expirable product
+        Product cheese = ProductFactory.createProduct("Cheese", 145.12, 2, LocalDate.of(2025, 7, 29), 400); // Shippable expirable product
         Product biscuits = ProductFactory.createProduct("Biscuits", 11.99, 8, LocalDate.of(2025, 8, 12), 700); // Shippable expirable product
 
         Cart cart = new Cart();
@@ -36,7 +36,7 @@ public class Main {
         assert cart.getItems().get(cheese) == 2 : "The quantity should have increased to 2";
         cart.addProduct(biscuits, 2);
 
-        Customer customer = new Customer("John Doe", 500.00);
+        Customer customer = new Customer("John Doe", 5000.00);
 
         CheckoutService.checkout(customer, cart);
     }

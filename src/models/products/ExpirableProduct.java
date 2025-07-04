@@ -25,5 +25,10 @@ public class ExpirableProduct extends Product implements Expirable {
     public LocalDate getExpiryDate() {
         return expiryDate;
     }
+    
+    @Override
+    public boolean isExpired() {
+        return LocalDate.now().isAfter(expiryDate);
+    }
 
 }
