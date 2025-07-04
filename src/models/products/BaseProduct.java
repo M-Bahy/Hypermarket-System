@@ -1,4 +1,4 @@
-package src.models;
+package src.models.products;
 
 import src.abstractClasses.Product;
 

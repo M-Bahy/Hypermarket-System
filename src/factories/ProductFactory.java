@@ -3,10 +3,10 @@ package src.factories;
 import java.time.LocalDate;
 
 import src.abstractClasses.Product;
-import src.models.BaseProduct;
-import src.models.ExpirableProduct;
-import src.models.ShippableExpirableProduct;
-import src.models.ShippableProduct;
+import src.models.products.BaseProduct;
+import src.models.products.ExpirableProduct;
+import src.models.products.ShippableExpirableProduct;
+import src.models.products.ShippableProduct;
 
 public class ProductFactory {
 
