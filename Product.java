@@ -3,6 +3,12 @@ public abstract class Product {
     private double price;
     private int quantity;
 
+    public Product(String name, double price, int quantity) {
+        setName(name);
+        setPrice(price);
+        setQuantity(quantity);
+    }
+
     public String getName() {
         return name;
     }
